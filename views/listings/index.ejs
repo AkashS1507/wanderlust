@@ -1,43 +1,64 @@
 <% layout("layouts/boilerplate") %>
+
+<% block head %>
+<style>
+    #filters {
+      display: flex;
+      align-items: center;
+      height: 15vh;
+      padding: 0 0.5rem;
+    }
+  
+    .filter-left {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+      flex: 1;
+      align-items: center;
+    }
+  
+    .filter-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 1rem;
+    }
+  
+    .filter {
+      text-align: center;
+      opacity: 0.7;
+      flex-shrink: 0;
+      margin-top: 1rem;
+    }
+  
+    .filter:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+  
+    .filter i {
+      font-size: 1.25rem;
+    }
+    .filter p {
+      font-size: 0.85rem;
+    }
+  
+    .tax-toggle {
+      border: 2px solid gainsboro;
+      border-radius: 1rem;
+      padding: 0.75rem;
+    }
+    .tax-toggle :hover {
+      cursor: pointer;
+    }
+  </style>
+<% endblock %>
   <body>
-    <style>
-      #filters {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        padding: 0 0.5rem;
-      }
-      .filter {
-        text-align: center;
-        margin-right: 2rem;
-        margin-top: 2rem;
-        opacity: 0.7;
-      }
-      .filter:hover {
-        opacity: 1;
-        cursor: pointer;
-      }
-      .filter p {
-        font-size: 0.85rem;
-      }
-
-      .tax-toggle {
-        border: 2px solid gainsboro;
-        border-radius: 1rem;
-        display: flex;
-        align-items: center;
-        height:fit-content;
-        padding: 0.75rem;
-        margin-top: 0.7rem;
-        margin-left: auto;
-      }
-      .tax-toggle:hover {
-        cursor: pointer;
-      }
-
-    </style>
     <div id="filters">
-      <div class="filter" onclick="comingSoon()">
+      <div class="filter-left">
+        <div class="filter" onclick="comingSoon()">
         <i class="fa-solid fa-fire"></i> 
         <p>Trending</p>
       </div>
@@ -77,7 +98,8 @@
         <i class="fa-solid fa-snowflake"></i>
         <p>Arctic</p>
       </div>
-      <div class="tax-toggle">
+      </div>
+      <div class="tax-toggle filter-right">
         <div class="form-check-reverse form-switch">
           <input class="form-check-input tax-switch" type="checkbox" role="switch" id="switchCheckDefault">
           <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
