@@ -91,9 +91,10 @@ body {
 
 /* New Page */
 
-.add-btn, .edit-btn {
+.add-btn, .edit-btn, .signup-btn, .login-btn {
     background-color: #fe424d !important;
     border: none !important;
+    color: white !important;
 }
 
 /* Show Page */
